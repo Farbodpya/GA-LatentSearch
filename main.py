@@ -1,7 +1,7 @@
 import time
 import numpy as np
 from ga_functions import dynamic_ga_latent
-from utils import plot_results
+
 
 # Run the latent GA 30 times
 n_runs = 30
@@ -21,5 +21,4 @@ print("\n--- Summary of Latent GA Runs ---")
 for i in range(n_runs):
     print(f"Run {i+1:2d}: Final Cost = {latent_cost[i]:.6f}, Time = {latent_time[i]:.2f} sec")
 
-# Optional: Plot the results
-plot_results(latent_cost, latent_time)
+
