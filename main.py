@@ -32,7 +32,8 @@ plt.title("Latent-Space GA: Cost vs Iteration")
 plt.legend()
 plt.grid(True, which="both", ls="--")
 plt.tight_layout()
-plt.show()
+plt.savefig("plot.png")
+
 
 # Print final best costs
 print("\nFinal Best Costs:")
