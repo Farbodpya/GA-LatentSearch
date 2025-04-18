@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from benchmark_functions import sphere, rastrigin, ackley, griewank, zakharov, rastrigin_ii
 from dynamic_ga_latent import dynamic_ga_latent
+matplotlib.use('Agg')
 
 benchmarks = {
     "Sphere": sphere,
