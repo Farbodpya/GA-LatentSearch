@@ -1,24 +1,39 @@
-import time
 import numpy as np
-from ga_functions import dynamic_ga_latent
+import matplotlib.pyplot as plt
+from benchmark_functions import sphere, rastrigin, ackley, griewank, zakharov, rastrigin_ii
+from dynamic_ga_latent import dynamic_ga_latent
 
+benchmarks = {
+    "Sphere": sphere,
+    "Rastrigin": rastrigin,
+    "Ackley": ackley,
+    "Griewank": griewank,
+    "Zakharov": zakharov,
+    "Rastrigin II": rastrigin_ii
+}
 
-# Run the latent GA 30 times
-n_runs = 30
-latent_cost = []
-latent_time = []
+results = {}
+final_costs = {}
+print("\nRunning Latent-Space GA Once Per Benchmark:\n")
+for name, fn in benchmarks.items():
+    print(f"Running: {name}")
+    costs = dynamic_ga_latent(fn)
+    results[name] = costs
+    final_costs[name] = costs[-1]
 
-print("\n--- Running Latent-Space GA 30 Times (2D → 5000D) ---\n")
-for run in range(n_runs):
-    print(f"Run {run+1:2d}...", end='')
-    final_cost, total_time = dynamic_ga_latent()
-    latent_cost.append(final_cost)
-    latent_time.append(total_time)
-    print(f" Done: Final Cost = {final_cost:.6f}, Time = {total_time:.2f} sec")
+# Plotting
+plt.figure(figsize=(12, 7))
+for name, costs in results.items():
+    plt.semilogy(costs, label=name)
+plt.xlabel("Iteration")
+plt.ylabel("Best Cost (log scale)")
+plt.title("Latent-Space GA: Cost vs Iteration")
+plt.legend()
+plt.grid(True, which="both", ls="--")
+plt.tight_layout()
+plt.show()
 
-# Summary
-print("\n--- Summary of Latent GA Runs ---")
-for i in range(n_runs):
-    print(f"Run {i+1:2d}: Final Cost = {latent_cost[i]:.6f}, Time = {latent_time[i]:.2f} sec")
-
-
+# Print final best costs
+print("\nFinal Best Costs:")
+for name, cost in final_costs.items():
+    print(f"{name:15}: {cost:.6e}")
