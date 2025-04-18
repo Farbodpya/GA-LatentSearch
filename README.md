@@ -1,17 +1,46 @@
-# Dynamic Genetic Algorithm in Latent Space (dynGA)
+# GA-LatentSearch
 
-This project implements a dynamic genetic algorithm (dynGA) that operates in latent space, allowing for efficient optimization of high-dimensional problems using latent-space techniques. The algorithm uses a custom projection matrix for encoding and decoding between a high-dimensional and a latent space.
+**GA-LatentSearch** is a high-dimensional optimization framework that leverages a Genetic Algorithm (GA) to perform search in a low-dimensional latent space. This approach enables efficient optimization of challenging benchmark functions in thousands of dimensions by projecting them into a compact subspace.
 
-## Features
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![Status](https://img.shields.io/badge/status-active-success)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-- **Dynamic Population Size**: Population size decreases dynamically with each iteration.
-- **Latent-Space Optimization**: The algorithm operates in a latent 2D space to optimize a problem in 1000D.
-- **Crossover & Mutation**: The algorithm uses BLX-alpha crossover and Gaussian mutation strategies.
-- **Cost Function**: The cost function used is the Sphere function, evaluated in the 1000D space.
+---
 
-## Setup
+## 🌱 Why Latent Search?
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Farbodpya/GA-LatentSearch.git
-   cd GA-LatentSearch
+High-dimensional optimization is notoriously difficult due to the **curse of dimensionality**. Instead of searching in the full space (e.g. 5000D), GA-LatentSearch projects the problem into a 2D latent space using a random linear projection, optimizing within that space and decoding solutions back to the original space.
+
+---
+
+## ⚙️ How It Works
+
+1. **Random Projection**: A `D × d` projection matrix (e.g. 5000×2) maps latent vectors to the high-dimensional space.
+2. **Decode Function**: Latent solutions are decoded using matrix multiplication.
+3. **GA Optimization**: A Genetic Algorithm operates on latent space vectors using blend crossover and Gaussian mutation.
+4. **Fitness Evaluation**: Benchmark functions are applied on the decoded vectors.
+5. **Dynamic Population**: The population size shrinks over time for convergence.
+
+---
+
+## 🧪 Benchmarks
+
+Implemented benchmark functions include:
+
+- Sphere
+- Rastrigin
+- Ackley
+- Griewank
+- Zakharov
+- Rastrigin II
+
+---
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Farbodpya/GA-LatentSearch.git
+cd GA-LatentSearch
