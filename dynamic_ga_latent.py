@@ -1,5 +1,5 @@
 import numpy as np
-from benchmark_functions import decode
+from projection import decode
 from ga_operations import blend_crossover, mutate
 
 def dynamic_ga_latent(func, z_dim=2, n_pop_init=500, max_it=200, pc=0.8, pm=0.3, mu=0.02):
