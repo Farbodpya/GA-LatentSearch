@@ -1,6 +1,8 @@
 import numpy as np
 from projection import decode
 from ga_operations import blend_crossover, mutate
+import random
+
 
 def dynamic_ga_latent(func, z_dim=2, n_pop_init=500, max_it=200, pc=0.8, pm=0.3, mu=0.02):
     n_pop = n_pop_init
