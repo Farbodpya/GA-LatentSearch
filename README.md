@@ -2,6 +2,8 @@
 
 **GA-LatentSearch** is a high-dimensional optimization framework that leverages a Genetic Algorithm (GA) to perform search in a low-dimensional latent space. This approach enables efficient optimization of challenging benchmark functions in thousands of dimensions by projecting them into a compact subspace.
 
+Zenodo DOI:(https://doi.org/10.5281/zenodo.15342205)
+
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
