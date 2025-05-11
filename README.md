@@ -44,3 +44,6 @@ Clone the repository:
 ```bash
 git clone https://github.com/Farbodpya/GA-LatentSearch.git
 cd GA-LatentSearch
+
+# Run the optimizer
+python main.py
